@@ -4,7 +4,7 @@ class Todo {
     this._templateElement = document.querySelector(selector);
   }
 
-  _dateCheck() {
+  _checkDate() {
     this._todoDate = this._todoElement.querySelector(".todo__date");
     if (this._data.date) {
       this._dueDate = new Date(this._data.date);
@@ -25,7 +25,7 @@ class Todo {
     }
   }
 
-  _generateCheckbocEl() {
+  _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
@@ -52,9 +52,9 @@ class Todo {
     this._todoNameEl = this._todoElement.querySelector(".todo__name");
 
     this._todoNameEl.textContent = this._data.name;
-    this._generateCheckbocEl();
+    this._generateCheckboxEl();
     this._setEventListeners();
-    this._dateCheck();
+    this._checkDate();
 
     return this._todoElement;
   }

@@ -5,7 +5,7 @@ class FormValidator {
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._errorClass = settings.errorClass;
-    this._inputErrorClass = settings.InputErrorClass;
+    this._inputErrorClass = settings.inputErrorClass;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._formEl = formEl;
     this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
@@ -39,10 +39,8 @@ class FormValidator {
   _checkInputValidity(_formEl, _inputElement, _settings) {
     if (!this._inputElement.validity.valid) {
       this._showInputError(
-        this._formEl,
         this._inputElement,
-        this._inputElement.validationMessage,
-        this._settings
+        this._inputElement.validationMessage
       );
     } else {
       this._hideInputError(this._inputElement);
@@ -56,7 +54,7 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    if (this._hasInvalidInput(this._inputSelectorArray)) {
+    if (this._hasInvalidInput()) {
       this._submitButton.classList.add(this._inactiveButtonClass);
       this._submitButton.disabled = true;
     } else {

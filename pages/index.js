@@ -32,6 +32,14 @@ addTodoCloseBtn.addEventListener("click", () => {
 
 addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  // Check form validity before proceeding
+  if (!addTodoForm.checkValidity()) {
+    // Optionally, trigger native validation UI
+    addTodoForm.reportValidity();
+    return;
+  }
+
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
 
@@ -39,7 +47,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
   const id = uuidv4();
-  const values = { name, date, id };
+  const values = { name, date, id, completed: false };
   const todo = generateTodo(values);
   todosList.append(todo);
   closeModal(addTodoPopup);
