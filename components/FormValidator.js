@@ -16,16 +16,16 @@ class FormValidator {
   }
   resetValidation() {
     this._formEl.reset();
-    this._submitButton.disabled = true;
+    this._toggleButtonState();
   }
 
-  _showInputError(_inputElement, errorMessage) {
-    this._errorElementId = `#${this._inputElement.id}-error`;
-    this._errorElement = this._formEl.querySelector(this._errorElementId);
-    console.log(this._errorElement);
-    this._inputElement.classList.add(this._inputErrorClass);
-    this._errorElement.textContent = errorMessage;
-    this._errorElement.classList.add(this._errorClass);
+  _showInputError(inputEl, errorMessage) {
+    // ↓ use *the argument* you just received
+    const errorEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+
+    inputEl.classList.add(this._inputErrorClass);
+    errorEl.textContent = errorMessage;
+    errorEl.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
