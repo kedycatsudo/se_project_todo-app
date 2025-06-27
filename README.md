@@ -3,15 +3,27 @@ This project is a simple, interactive Todo App built with vanilla JavaScript, HT
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+Functionality
+Add Todos: Create new tasks by entering text and submitting the form.
+Mark as Completed: Click on a todo item to mark it as completed or incomplete.
+Delete Todos: Remove tasks from the list using the delete button.
+Popup Modals: Use popup dialogs for confirmations and notifications.
+Keyboard Accessibility: Close popups with the Escape key.
+Overlay Click: Close popups by clicking outside the popup content.
+Live Counters: View real-time counts of total and completed todos.
+Persistent UI: All actions update the interface immediately for a responsive experience..
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Technology
+HTML5 & CSS3: For semantic markup and responsive styling.
+JavaScript (ES6+): Handles app logic, DOM manipulation, and interactivity.
+Modular Components: Code is organized into reusable ES6 modules.
+BEM Methodology: CSS classes follow the Block-Element-Modifier naming convention.
+Popup UI: Custom popup component for dialogs and notifications.
+Vanilla JS: No external frameworks or libraries required.
+
 
 ## Deployment
 
-This project is deployed on GitHub Pages:
-ADD LINK HERE
-
-https://kedycatsudo.github.io/se_project_todo-app/
+This project is deployed on GitHub Pages:https://kedycatsudo.github.io/se_project_todo-app/

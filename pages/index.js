@@ -17,14 +17,13 @@ const addTodoPopup = new PopupWithForm(
   { popupSelector: "#add-todo-popup" },
   {
     handleFormSubmit: (inputValue) => {
-      todoCounter.updateTotal(true);
-
       // Check form validity before proceeding
       if (!addTodoForm.checkValidity()) {
         // Optionally, trigger native validation UI
         addTodoForm.reportValidity();
         return;
       }
+      todoCounter.updateTotal(true);
 
       const name = inputValue.name;
       const dateInput = inputValue.date;
@@ -56,6 +55,8 @@ const generateTodo = (data) => {
         if (completed) {
           todoCounter.updateCompleted(false);
           todoCounter.updateTotal(false);
+        } else {
+          todoCounter.updateTotal(false);
         }
       },
     }
@@ -69,7 +70,7 @@ const sectionIns = new Section({
   renderer: (item) => {
     const todo = generateTodo(item);
 
-    todosList.append(todo);
+    sectionIns.addItem(todo);
   },
   containerSelector: ".todos__list",
 });
