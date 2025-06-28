@@ -12,6 +12,10 @@ const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  sectionIns.addItem(todo);
+};
 
 const addTodoPopup = new PopupWithForm(
   { popupSelector: "#add-todo-popup" },
@@ -68,18 +72,14 @@ const generateTodo = (data) => {
 const sectionIns = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const todo = generateTodo(item);
+    console.log(item);
+    const todo = renderTodo(item);
 
-    sectionIns.addItem(todo);
+    //sectionIns.addItem(todo);
   },
   containerSelector: ".todos__list",
 });
 sectionIns.renderItems();
-
-const renderTodo = (item) => {
-  const todo = generateTodo(item);
-  sectionIns.addItem(todo);
-};
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
